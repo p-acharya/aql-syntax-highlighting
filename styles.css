@@ -1,0 +1,114 @@
+/* AQL Syntax Highlighting */
+
+.cm-s-obsidian .cm-string {
+  color: #811b00;
+  font-style: italic;
+}
+
+.cm-s-obsidian .cm-string-2 {
+  color: #811b00;
+  font-style: italic;
+}
+
+.cm-s-obsidian .cm-operator {
+  color: #d73a49;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-def {
+  color: #6f42c1;
+}
+
+.cm-s-obsidian .cm-variable-2 {
+  color: #0086b3;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-bracket {
+  color: #d73a49;
+}
+
+.cm-s-obsidian .cm-property {
+  color: #6f42c1;
+  font-weight: 500;
+}
+
+.cm-s-obsidian .cm-node_1 {
+  color: red;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_2 {
+  color: #c71585;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_3 {
+  color: #32cd32;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_4 {
+  color: #cd853f;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_5 {
+  color: #87ceeb;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_6 {
+  color: #cd5c5c;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_7 {
+  color: #adff2f;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_8 {
+  color: #8b0000;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_9 {
+  color: #ff4500;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_10 {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_11 {
+  color: #d2b48c;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_12 {
+  color: navy;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_13 {
+  color: #00fa9a;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_14 {
+  color: #1e90ff;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_15 {
+  color: #6b8e23;
+  font-weight: bold;
+}
+
+.cm-s-obsidian .cm-node_16 {
+  color: #ffb6c1;
+  font-weight: bold;
+}
