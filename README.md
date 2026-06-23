@@ -2,6 +2,8 @@
 
 ANNIS Query Language (AQL) syntax highlighting for Obsidian code blocks.
 
+Current release: `v1.0.0`
+
 ## What Is ANNIS?
 
 ANNIS (ANNotation of Information Structure) is an open-source search and
@@ -27,7 +29,7 @@ visualization platform for richly annotated linguistic corpora.
 
 ### Manual install
 
-1. Download the latest release from GitHub.
+1. Download the latest GitHub release (`v1.0.0`).
 2. Copy `manifest.json`, `main.js`, and `styles.css` into:
    - `<your-vault>/.obsidian/plugins/aql-syntax-highlighting/`
 3. In Obsidian, open **Settings -> Community plugins** and enable **AQL Syntax Highlighting**.
@@ -64,7 +66,7 @@ tok="learning" & pos="NN" & #1 . #2
 
 ### Manual install
 
-- Replace `manifest.json`, `main.js`, and `styles.css` with files from the latest release.
+- Replace `manifest.json`, `main.js`, and `styles.css` with files from the latest GitHub release (`v1.0.0` for now).
 - Reload Obsidian (or disable and re-enable the plugin).
 
 ## Development
