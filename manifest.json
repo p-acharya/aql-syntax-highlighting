@@ -3,7 +3,8 @@
     "name": "AQL Syntax Highlighting",
     "version": "1.0.0",
     "minAppVersion": "0.12.0",
-    "description": "ANNIS Query Language (AQL) syntax highlighting for code blocks",
+    "description": "ANNIS Query Language (AQL) syntax highlighting for code blocks.",
     "author": "Poorvi Acharya",
-    "authorUrl": "https://p-acharya.github.io/"
+    "authorUrl": "https://p-acharya.github.io/",
+    "isDesktopOnly": true
 }
