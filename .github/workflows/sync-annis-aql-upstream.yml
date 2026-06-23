@@ -1,0 +1,72 @@
+name: Sync ANNIS AQL Upstream
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch and compare upstream AQL mode
+        id: sync
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          URL="https://raw.githubusercontent.com/korpling/ANNIS/main/src/main/resources/org/corpus_tools/annis/gui/components/codemirror/mode/aql/aql.js"
+          mkdir -p .upstream
+
+          curl -fsSL "$URL" -o /tmp/annis-aql.js
+          sha256sum /tmp/annis-aql.js | awk '{print $1}' > /tmp/annis-aql.sha256
+
+          previous_sha=""
+          if [[ -f .upstream/annis-aql.sha256 ]]; then
+            previous_sha="$(cat .upstream/annis-aql.sha256)"
+          fi
+
+          new_sha="$(cat /tmp/annis-aql.sha256)"
+
+          if [[ "$previous_sha" == "$new_sha" ]]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          cp /tmp/annis-aql.js .upstream/annis-aql.js
+          cp /tmp/annis-aql.sha256 .upstream/annis-aql.sha256
+
+          {
+            echo "# ANNIS AQL Upstream Update"
+            echo
+            echo "- Source: $URL"
+            echo "- Previous SHA256: ${previous_sha:-<none>}"
+            echo "- New SHA256: $new_sha"
+            echo
+            echo "This PR updates the upstream snapshot."
+            echo "If tokenizer behavior changed, port relevant changes into aql-mode.ts before merging."
+          } > .upstream/UPSTREAM_UPDATE.md
+
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Create pull request
+        if: steps.sync.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/sync-annis-aql-upstream
+          delete-branch: true
+          commit-message: "chore: sync ANNIS AQL upstream snapshot"
+          title: "chore: sync ANNIS AQL upstream snapshot"
+          body-path: .upstream/UPSTREAM_UPDATE.md
+          labels: maintenance, upstream-sync
+          add-paths: |
+            .upstream/annis-aql.js
+            .upstream/annis-aql.sha256
+            .upstream/UPSTREAM_UPDATE.md
