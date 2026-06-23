@@ -5,5 +5,6 @@
     "minAppVersion": "0.12.0",
     "description": "ANNIS Query Language (AQL) syntax highlighting for code blocks.",
     "author": "Poorvi Acharya",
-    "authorUrl": "https://p-acharya.github.io/"
+    "authorUrl": "https://p-acharya.github.io/",
+    "isDesktopOnly": true
 }
